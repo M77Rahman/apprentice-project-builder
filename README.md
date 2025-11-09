@@ -20,30 +20,19 @@ A Streamlit app that analyzes your CV, extracts your skills, and generates **cus
    ```bash
    git clone https://github.com/M77Rahman/apprentice-project-builder.git
    cd apprentice-project-builder
-Create a virtual environment:
 
-bash
-Copy code
-python -m venv .venv
+Create a virtual environment: python -m venv .venv
 source .venv/bin/activate
-Install dependencies:
+Install dependencies:pip install -r requirements.txt
 
-bash
-Copy code
-pip install -r requirements.txt
-Run the app:
-
-bash
-Copy code
-streamlit run app.py
+Run the app:streamlit run app.py
 💬 AI Generation Modes
+
 Online (Streamlit Cloud): Uses simple fallback project ideas (free)
 
 Local (Ollama): Run ollama serve and get real AI-generated projects
 
 📍 Live App
-👉 Try it on Streamlit Cloud
 
-Built by Muhammad Emdadur Rahman
-📧 emdadrahman78@gmail.com
-🔗 LinkedIn
+👉 Try it on Streamlit Cloud
+https://apprentice-project-builder-etec9hnna67kqxywwjgks7.streamlit.app/
