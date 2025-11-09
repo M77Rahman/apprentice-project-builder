@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Cyber Security Apprentice",
+    "skills": ["Linux", "Networking", "Python", "Regex"]
+  },
+  {
+    "title": "Data Analyst Apprentice",
+    "skills": ["SQL", "Excel", "Power BI", "Python"]
+  },
+  {
+    "title": "Software Engineering Apprentice",
+    "skills": ["Git", "CI/CD", "APIs", "JavaScript", "React"]
+  }
+]
