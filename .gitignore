@@ -1,3 +1,7 @@
 .streamlit/secrets.toml
-.streamlit/secrets.toml
-.streamlit/secrets.toml
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
