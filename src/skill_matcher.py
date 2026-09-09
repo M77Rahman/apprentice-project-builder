@@ -1,9 +1,7 @@
-from typing import List
-
 from .utils import top_skills_from_jobs
 
 
-def find_skill_gaps(cv_skills: List[str], market_skills: List[str]) -> List[str]:
+def find_skill_gaps(cv_skills: list[str], market_skills: list[str]) -> list[str]:
     """Return the skills present in market_skills but missing from cv_skills.
 
     Plain set difference, alphabetically sorted — use rank_skill_gaps() when
@@ -12,7 +10,7 @@ def find_skill_gaps(cv_skills: List[str], market_skills: List[str]) -> List[str]
     return sorted(set(market_skills) - set(cv_skills))
 
 
-def rank_skill_gaps(cv_skills: List[str], jobs: List[dict]) -> List[str]:
+def rank_skill_gaps(cv_skills: list[str], jobs: list[dict]) -> list[str]:
     """Return every skill gap across `jobs`, ranked most in-demand first.
 
     "In demand" means how many job listings require the skill, computed via
@@ -24,6 +22,6 @@ def rank_skill_gaps(cv_skills: List[str], jobs: List[dict]) -> List[str]:
     return [skill for skill in ranked_all if skill not in cv_set]
 
 
-def top_skill_gaps(cv_skills: List[str], jobs: List[dict], n: int = 3) -> List[str]:
+def top_skill_gaps(cv_skills: list[str], jobs: list[dict], n: int = 3) -> list[str]:
     """Return the top `n` highest-priority skill gaps for `cv_skills` vs `jobs`."""
     return rank_skill_gaps(cv_skills, jobs)[:n]

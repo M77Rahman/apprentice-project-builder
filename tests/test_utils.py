@@ -1,6 +1,6 @@
 from collections import Counter
 
-from src.utils import top_skills_from_jobs, skill_frequency
+from src.utils import skill_frequency, top_skills_from_jobs
 
 JOBS = [
     {"title": "A", "skills": ["Python", "SQL"]},

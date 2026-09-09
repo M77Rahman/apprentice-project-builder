@@ -1,4 +1,5 @@
 import re
+
 from pypdf import PdfReader
 from rapidfuzz import fuzz
 

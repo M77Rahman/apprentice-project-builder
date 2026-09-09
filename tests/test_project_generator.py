@@ -1,4 +1,4 @@
-from src.project_generator import generate_projects, REQUIRED_KEYS
+from src.project_generator import REQUIRED_KEYS, generate_projects
 
 JOBS = [
     {"title": "Data Analyst Apprentice", "skills": ["SQL", "Excel", "Power BI", "Python"]},

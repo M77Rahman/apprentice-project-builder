@@ -9,11 +9,15 @@ Two generation modes:
 """
 
 import json
+import logging
 import os
 import re
-from typing import Dict, List, Tuple
 
+import anthropic
 import streamlit as st
+from streamlit.errors import StreamlitSecretNotFoundError
+
+logger = logging.getLogger(__name__)
 
 DEFAULT_MODEL = "claude-sonnet-5"
 REQUIRED_KEYS = [
@@ -31,7 +35,7 @@ def get_api_key() -> str:
     try:
         if "ANTHROPIC_API_KEY" in st.secrets:
             return st.secrets["ANTHROPIC_API_KEY"]
-    except Exception:
+    except StreamlitSecretNotFoundError:
         pass
     return os.environ.get("ANTHROPIC_API_KEY", "")
 
@@ -44,7 +48,7 @@ def ai_available() -> bool:
 # AI generation path
 # ---------------------------------------------------------------------------
 
-def _job_context_for_gaps(skill_gaps: List[str], jobs: List[dict]) -> Dict[str, dict]:
+def _job_context_for_gaps(skill_gaps: list[str], jobs: list[dict]) -> dict[str, dict]:
     """For each gap, collect the job titles that need it and the other
     skills those jobs also require, so the prompt can tailor projects to
     real roles rather than the skill in isolation."""
@@ -57,7 +61,7 @@ def _job_context_for_gaps(skill_gaps: List[str], jobs: List[dict]) -> Dict[str, 
     return context
 
 
-def _build_prompt(skill_gaps: List[str], cv_skills: List[str], jobs: List[dict]) -> str:
+def _build_prompt(skill_gaps: list[str], cv_skills: list[str], jobs: list[dict]) -> str:
     gap_context = _job_context_for_gaps(skill_gaps, jobs)
     return f"""You are helping a UK apprenticeship candidate build a portfolio that closes specific skill gaps.
 
@@ -101,15 +105,13 @@ def _validate_projects(projects: list) -> None:
         raise ValueError("Model response was not a non-empty JSON array")
     for p in projects:
         if not isinstance(p, dict):
-            raise ValueError("Project entry was not a JSON object")
+            raise TypeError("Project entry was not a JSON object")
         for key in REQUIRED_KEYS:
             if key not in p or p[key] in (None, "", []):
                 raise ValueError(f"Project missing required field: {key}")
 
 
-def _ai_generate(skill_gaps: List[str], cv_skills: List[str], jobs: List[dict], api_key: str) -> list:
-    import anthropic
-
+def _ai_generate(skill_gaps: list[str], cv_skills: list[str], jobs: list[dict], api_key: str) -> list:
     client = anthropic.Anthropic(api_key=api_key, timeout=30.0)
     model = os.environ.get("ANTHROPIC_MODEL", DEFAULT_MODEL)
     prompt = _build_prompt(skill_gaps, cv_skills, jobs)
@@ -132,7 +134,7 @@ def _ai_generate(skill_gaps: List[str], cv_skills: List[str], jobs: List[dict], 
 # Tools associated with specific skills. Skills not listed here fall back to
 # a category guess (see _CATEGORY_TOOLS) so suggestions still stay relevant
 # to the actual skill gap instead of defaulting to generic Python tooling.
-_SKILL_TOOLS: Dict[str, List[str]] = {
+_SKILL_TOOLS: dict[str, list[str]] = {
     "SQL": ["PostgreSQL", "DBeaver", "pgAdmin"],
     "SQL Server": ["SQL Server Management Studio", "T-SQL", "Azure Data Studio"],
     "PostgreSQL": ["psql", "pgAdmin", "SQLAlchemy"],
@@ -266,7 +268,7 @@ _SKILL_TOOLS: Dict[str, List[str]] = {
     "WAN": ["GNS3", "Cisco Packet Tracer", "Wireshark"],
 }
 
-_CATEGORY_KEYWORDS: List[Tuple[str, List[str]]] = [
+_CATEGORY_KEYWORDS: list[tuple[str, list[str]]] = [
     ("data", ["data", "sql", "analytics", "warehous", "etl", "spark", "hadoop", "ml", "learning", "statist", "vision", "nlp"]),
     ("network", ["network", "cisco", "dns", "dhcp", "vpn", "firewall", "lan", "wan", "routing", "switch", "security", "vpn"]),
     ("cloud", ["cloud", "aws", "azure", "gcp", "docker", "kubernetes", "terraform", "devops", "ci/cd"]),
@@ -283,7 +285,7 @@ _CATEGORY_TOOLS = {
 }
 
 
-def _tools_for_skill(skill: str) -> List[str]:
+def _tools_for_skill(skill: str) -> list[str]:
     if skill in _SKILL_TOOLS:
         return _SKILL_TOOLS[skill]
     skill_lower = skill.lower()
@@ -293,7 +295,7 @@ def _tools_for_skill(skill: str) -> List[str]:
     return ["Git", "VS Code", skill]
 
 
-def _difficulty_for_gap(skill: str, cv_skills: List[str], jobs: List[dict]) -> str:
+def _difficulty_for_gap(skill: str, cv_skills: list[str], jobs: list[dict]) -> str:
     """Base difficulty on how much of the job's other required skillset the
     candidate already has: lots of overlap -> Easy, little overlap -> Hard."""
     relevant_jobs = [j for j in jobs if skill in j.get("skills", [])]
@@ -315,7 +317,7 @@ def _difficulty_for_gap(skill: str, cv_skills: List[str], jobs: List[dict]) -> s
     return "Hard"
 
 
-def _fallback_project_for_gap(skill: str, cv_skills: List[str], jobs: List[dict]) -> dict:
+def _fallback_project_for_gap(skill: str, cv_skills: list[str], jobs: list[dict]) -> dict:
     tools = _tools_for_skill(skill)
     difficulty = _difficulty_for_gap(skill, cv_skills, jobs)
     relevant_jobs = sorted({j["title"] for j in jobs if skill in j.get("skills", [])})[:3]
@@ -364,7 +366,7 @@ def _fallback_project_for_gap(skill: str, cv_skills: List[str], jobs: List[dict]
     }
 
 
-def _fallback_projects(skill_gaps: List[str], cv_skills: List[str], jobs: List[dict]) -> list:
+def _fallback_projects(skill_gaps: list[str], cv_skills: list[str], jobs: list[dict]) -> list:
     gaps = skill_gaps if skill_gaps else ["Python", "SQL", "Git"]
     return [_fallback_project_for_gap(gap, cv_skills, jobs) for gap in gaps[:3]]
 
@@ -373,7 +375,7 @@ def _fallback_projects(skill_gaps: List[str], cv_skills: List[str], jobs: List[d
 # Public entry point
 # ---------------------------------------------------------------------------
 
-def generate_projects(skill_gaps: List[str], cv_skills: List[str], jobs: List[dict]) -> Tuple[list, str]:
+def generate_projects(skill_gaps: list[str], cv_skills: list[str], jobs: list[dict]) -> tuple[list, str]:
     """Return (projects, mode). mode is "ai" when the Anthropic API produced
     the briefs, "template" when the offline fallback generator was used
     (no API key configured, or the API call failed)."""
@@ -384,7 +386,7 @@ def generate_projects(skill_gaps: List[str], cv_skills: List[str], jobs: List[di
         try:
             projects = _ai_generate(gaps, cv_skills, jobs, api_key)
             return projects, "ai"
-        except Exception:
-            pass
+        except (anthropic.APIError, ValueError, TypeError, KeyError) as exc:
+            logger.warning("AI project generation failed, falling back to template mode: %s", exc)
 
     return _fallback_projects(gaps, cv_skills, jobs), "template"

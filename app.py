@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
 import streamlit as st
-from src.cv_parser import extract_text_from_pdf, extract_skills_from_text
-from src.utils import load_json, top_skills_from_jobs, skill_frequency
+
+from src.cv_parser import extract_skills_from_text, extract_text_from_pdf
+from src.project_generator import ai_available, generate_projects
 from src.skill_matcher import find_skill_gaps, top_skill_gaps
-from src.project_generator import generate_projects, ai_available
+from src.utils import load_json, skill_frequency, top_skills_from_jobs
 
 st.set_page_config(page_title="Apprentice Project Builder", page_icon="🧠", layout="wide")
 
