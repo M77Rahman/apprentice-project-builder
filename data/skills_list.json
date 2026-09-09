@@ -1,7 +1,29 @@
 [
-  "Python", "SQL", "Excel", "Power BI", "Azure", "APIs",
-  "Linux", "Networking", "JavaScript", "HTML", "CSS",
-  "Docker", "AWS", "Git", "CI/CD", "Java", "C#",
-  "ETL", "Pandas", "NumPy", "Flask", "Django", "React",
-  "Node.js", "Bash", "Shell", "Regex", "REST", "GraphQL"
+  "Python", "SQL", "Excel", "Power BI", "Azure", "AWS", "GCP", "APIs", "REST", "GraphQL",
+  "Linux", "Windows Server", "Networking", "JavaScript", "TypeScript", "HTML", "CSS",
+  "Docker", "Kubernetes", "Git", "GitHub", "CI/CD", "Jenkins", "GitHub Actions",
+  "Java", "C#", ".NET", "C++", "PHP", "Ruby", "Go",
+  "ETL", "Pandas", "NumPy", "Flask", "Django", "FastAPI", "React", "Vue.js", "Angular",
+  "Node.js", "Bash", "Shell Scripting", "PowerShell", "Regex", "Terraform", "Ansible",
+
+  "Machine Learning", "Deep Learning", "scikit-learn", "TensorFlow", "PyTorch", "Keras",
+  "NLP", "Computer Vision", "Data Visualization", "Tableau", "dbt", "Apache Spark",
+  "Hadoop", "Data Warehousing", "Data Modelling", "Data Cleaning", "Statistics",
+  "R", "Jupyter Notebook", "Matplotlib", "Seaborn", "Snowflake", "BigQuery",
+  "Airflow", "MLOps", "A/B Testing", "Excel VBA", "Looker", "Big Data",
+
+  "DNS", "DHCP", "VPN", "Firewalls", "Cisco", "TCP/IP", "Subnetting", "Routing",
+  "Switching", "Network Security", "LAN", "WAN", "Wireshark", "Active Directory",
+  "Windows Server Administration", "Virtualization", "VMware", "Hyper-V",
+  "IT Support", "Helpdesk", "Ticketing Systems", "ITIL", "Cyber Security",
+  "Penetration Testing", "SIEM", "Endpoint Security", "Cloud Networking",
+  "Load Balancing", "Network Monitoring", "Server Administration", "Backup and Recovery",
+
+  "REST APIs", "GraphQL APIs", "Microservices", "Agile", "Scrum", "Jira", "Confluence",
+  "Unit Testing", "pytest", "Test Automation", "Selenium", "Postman", "SQL Server",
+  "MySQL", "PostgreSQL", "MongoDB", "Redis", "NoSQL", "Object-Oriented Programming",
+  "Design Patterns", "Web Accessibility", "UX Design", "UI Design", "Figma",
+  "Customer Service", "Technical Documentation", "Problem Solving", "Project Management",
+  "Data Protection (GDPR)", "Software Testing", "DevOps", "Monitoring (Grafana/Prometheus)",
+  "Salesforce", "SharePoint", "Microsoft 365"
 ]
