@@ -1,14 +1,187 @@
 [
   {
-    "title": "Cyber Security Apprentice",
-    "skills": ["Linux", "Networking", "Python", "Regex"]
+    "title": "Data Analyst Apprentice",
+    "track": "data_ai",
+    "skills": ["SQL", "Excel", "Power BI", "Python", "Data Cleaning", "Statistics"]
   },
   {
-    "title": "Data Analyst Apprentice",
-    "skills": ["SQL", "Excel", "Power BI", "Python"]
+    "title": "Data Engineering Apprentice",
+    "track": "data_ai",
+    "skills": ["Python", "SQL", "ETL", "Airflow", "Apache Spark", "Data Warehousing"]
+  },
+  {
+    "title": "Business Intelligence Apprentice",
+    "track": "data_ai",
+    "skills": ["Power BI", "SQL", "Excel", "Tableau", "Data Modelling", "Statistics"]
+  },
+  {
+    "title": "Machine Learning Apprentice",
+    "track": "data_ai",
+    "skills": ["Python", "Machine Learning", "scikit-learn", "Pandas", "NumPy", "Jupyter Notebook"]
+  },
+  {
+    "title": "AI Software Apprentice",
+    "track": "data_ai",
+    "skills": ["Python", "Machine Learning", "TensorFlow", "Deep Learning", "APIs", "Git"]
+  },
+  {
+    "title": "Data Science Apprentice",
+    "track": "data_ai",
+    "skills": ["Python", "SQL", "Statistics", "scikit-learn", "Data Visualization", "Pandas"]
+  },
+  {
+    "title": "Analytics Engineering Apprentice",
+    "track": "data_ai",
+    "skills": ["SQL", "dbt", "Python", "Snowflake", "Data Modelling", "Git"]
+  },
+  {
+    "title": "Cloud Data Apprentice",
+    "track": "data_ai",
+    "skills": ["Azure", "SQL", "Python", "BigQuery", "ETL", "Data Warehousing"]
+  },
+  {
+    "title": "Data Visualisation Apprentice",
+    "track": "data_ai",
+    "skills": ["Power BI", "Tableau", "Excel", "SQL", "Data Visualization", "Looker"]
+  },
+  {
+    "title": "NLP Research Apprentice",
+    "track": "data_ai",
+    "skills": ["Python", "NLP", "Machine Learning", "PyTorch", "Statistics", "Jupyter Notebook"]
+  },
+  {
+    "title": "Computer Vision Apprentice",
+    "track": "data_ai",
+    "skills": ["Python", "Computer Vision", "TensorFlow", "Deep Learning", "NumPy", "Git"]
+  },
+  {
+    "title": "MLOps Apprentice",
+    "track": "data_ai",
+    "skills": ["Python", "MLOps", "Docker", "Airflow", "Git", "CI/CD"]
+  },
+  {
+    "title": "Network Engineering Apprentice",
+    "track": "network_infra",
+    "skills": ["Networking", "TCP/IP", "Subnetting", "Routing", "Switching", "Cisco"]
+  },
+  {
+    "title": "Cyber Security Apprentice",
+    "track": "network_infra",
+    "skills": ["Linux", "Networking", "Python", "Cyber Security", "SIEM", "Network Security"]
+  },
+  {
+    "title": "Infrastructure Support Apprentice",
+    "track": "network_infra",
+    "skills": ["Windows Server", "Active Directory", "Networking", "Virtualization", "VMware", "Backup and Recovery"]
+  },
+  {
+    "title": "Cloud Infrastructure Apprentice",
+    "track": "network_infra",
+    "skills": ["Azure", "AWS", "Terraform", "Linux", "Networking", "Cloud Networking"]
+  },
+  {
+    "title": "Network Security Apprentice",
+    "track": "network_infra",
+    "skills": ["Firewalls", "VPN", "Network Security", "Cisco", "Wireshark", "Penetration Testing"]
+  },
+  {
+    "title": "Systems Administrator Apprentice",
+    "track": "network_infra",
+    "skills": ["Windows Server Administration", "Linux", "Active Directory", "PowerShell", "Backup and Recovery", "Virtualization"]
+  },
+  {
+    "title": "Telecoms Apprentice",
+    "track": "network_infra",
+    "skills": ["Networking", "TCP/IP", "LAN", "WAN", "Routing", "Switching"]
+  },
+  {
+    "title": "DevOps Apprentice",
+    "track": "network_infra",
+    "skills": ["Docker", "Kubernetes", "CI/CD", "Terraform", "Linux", "Git"]
+  },
+  {
+    "title": "Penetration Testing Apprentice",
+    "track": "network_infra",
+    "skills": ["Cyber Security", "Penetration Testing", "Linux", "Networking", "Python", "Wireshark"]
+  },
+  {
+    "title": "IT Infrastructure Apprentice",
+    "track": "network_infra",
+    "skills": ["Networking", "DNS", "DHCP", "Windows Server", "VPN", "Firewalls"]
+  },
+  {
+    "title": "Cloud Networking Apprentice",
+    "track": "network_infra",
+    "skills": ["AWS", "Azure", "Networking", "Cloud Networking", "Load Balancing", "Network Monitoring"]
+  },
+  {
+    "title": "Server Support Apprentice",
+    "track": "network_infra",
+    "skills": ["Server Administration", "Linux", "Windows Server", "Virtualization", "Hyper-V", "Backup and Recovery"]
   },
   {
     "title": "Software Engineering Apprentice",
-    "skills": ["Git", "CI/CD", "APIs", "JavaScript", "React"]
+    "track": "digital_support",
+    "skills": ["Git", "CI/CD", "APIs", "JavaScript", "React", "Object-Oriented Programming"]
+  },
+  {
+    "title": "Digital Support Apprentice",
+    "track": "digital_support",
+    "skills": ["IT Support", "Helpdesk", "Ticketing Systems", "Windows Server", "Networking", "Customer Service"]
+  },
+  {
+    "title": "Web Developer Apprentice",
+    "track": "digital_support",
+    "skills": ["HTML", "CSS", "JavaScript", "React", "Git", "REST"]
+  },
+  {
+    "title": "Backend Developer Apprentice",
+    "track": "digital_support",
+    "skills": ["Python", "Flask", "REST APIs", "PostgreSQL", "Git", "Docker"]
+  },
+  {
+    "title": "Full Stack Developer Apprentice",
+    "track": "digital_support",
+    "skills": ["JavaScript", "Node.js", "React", "MongoDB", "REST", "Git"]
+  },
+  {
+    "title": "QA and Test Automation Apprentice",
+    "track": "digital_support",
+    "skills": ["Test Automation", "Selenium", "pytest", "Git", "Software Testing", "Postman"]
+  },
+  {
+    "title": "IT Helpdesk Apprentice",
+    "track": "digital_support",
+    "skills": ["Helpdesk", "Ticketing Systems", "ITIL", "Windows Server", "Customer Service", "Active Directory"]
+  },
+  {
+    "title": ".NET Developer Apprentice",
+    "track": "digital_support",
+    "skills": ["C#", ".NET", "SQL Server", "Git", "REST APIs", "Agile"]
+  },
+  {
+    "title": "Product Support Apprentice",
+    "track": "digital_support",
+    "skills": ["Customer Service", "Jira", "Confluence", "SQL", "Technical Documentation", "Salesforce"]
+  },
+  {
+    "title": "UX/UI Design Apprentice",
+    "track": "digital_support",
+    "skills": ["Figma", "UX Design", "UI Design", "Web Accessibility", "HTML", "CSS"]
+  },
+  {
+    "title": "Business Systems Apprentice",
+    "track": "digital_support",
+    "skills": ["SQL", "SharePoint", "Microsoft 365", "Excel", "Project Management", "Salesforce"]
+  },
+  {
+    "title": "Agile Delivery Apprentice",
+    "track": "digital_support",
+    "skills": ["Agile", "Scrum", "Jira", "Confluence", "Project Management", "Technical Documentation"]
+  },
+  {
+    "title": "Java Developer Apprentice",
+    "track": "digital_support",
+    "skills": ["Java", "SQL", "Git", "Design Patterns", "Object-Oriented Programming", "REST APIs"]
   }
 ]
